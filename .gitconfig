@@ -1,0 +1,37 @@
+[user]
+	name = Sasha Khamkov
+	email = sanusart@gmail.com
+[core]
+	autocrlf = input
+	editor = nano
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	excludesfile = ~/.gitignore
+[alias]
+	abort = reset --hard HEAD
+	snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+	lasttag = describe --tags --abbrev=0
+	mylog = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	mydiff = diff --cached
+[sendemail]
+	smtpencryption = tls
+	smtpserver = smtp.gmail.com
+	smtpuser = sanusart@gmail.com
+	smtppass = **************
+	smtpserverport = 587
+[web]
+	browser = chromium
+[rerere]
+	enabled = 1
+	autoupdate = 1
+[push]
+	default = matching
+[color]
+	ui = 1
+[color "branch"]
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
