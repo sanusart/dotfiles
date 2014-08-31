@@ -56,9 +56,8 @@ BAKCYN='\[\e[46m\]'   # Cyan
 BAKWHT='\[\e[47m\]'   # White
 TXTRST='\[\e[0m\]'    # Text Reset
 
-PS1="$BAKGRN$BLDWHT \u $BAKWHT$BLDBLK \w $BLDWHT$BAKYLW\$(show_git_branch)$TXTRST$BLDWHT$BAKCYN > $TXTRST "
-### PS1="$BAKWHT$BLDBLK \w  $TXTRST$BLDWHT >$TXTRST "
-### PS1=">"
+PS1="$BAKGRN$BLDWHT \u $BAKWHT$BLDBLK \w $TXTRST$BLDWHT$BAKYLW\$(show_git_branch)$TXTRST
+$BLDWHT$BAKCYN > $TXTRST "
 
 ### HOME
 export HOME="/home/$USER"
@@ -84,7 +83,7 @@ export PATH=/opt/android-sdk/tools:$PATH
 export PATH=/opt/android-sdk/platform-tools:$PATH
 
 ### System-wide editor (instead of VI).
-export EDITOR=nano
+export EDITOR=vim
 export VISUAL=$EDITOR
 
 ### Ruby 2.x.x
@@ -95,15 +94,19 @@ PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
 set show-all-if-ambiguous on
 
 # mkhere completion
-source ~/.mkhere.completion.sh
+[[ -f ~/.mkhere.completion.sh ]] && . ~/.mkhere.completion.sh
 
 # z completion
-. ~/bin/z/z.sh
+[[ -f ~/bin/z/z.sh ]] && . ~/bin/z/z.sh
 
 # NPM completion
-source ~/.npm.completion.sh
+. <(npm completion)
 
 # Includes
-if [ -f ~/.bash_functions ]; then . ~/.bash_functions; fi
-if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
-if [ -f /etc/bash_completion ]; then . /etc/bash_completion; fi
+[[ -f ~/.bash_functions ]] && . ~/.bash_functions
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
+[[ -f /etc/bash_completion ]] && . /etc/bash_completion
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+source ~/.profile
+

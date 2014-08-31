@@ -5,7 +5,7 @@
 	autocrlf = input
 	editor = nano
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	excludesfile = ~/.gitignore
+	excludesfile = /home/sasha/.gitignore_global
 [alias]
 	abort = reset --hard HEAD
 	snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
