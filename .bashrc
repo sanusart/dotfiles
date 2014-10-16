@@ -65,6 +65,8 @@ export HOME="/home/$USER"
 ### Puthon 2.7
 export PYTHON=python2.7
 
+export PATH=~/.rvm/gems/ruby-2.1.2/bin:$PATH
+
 ### Include bin dir per user
 export PATH=~/bin:$PATH
 
@@ -73,10 +75,6 @@ export CHROME_BIN=chromium
 
 ### Path to .inputrc
 export INPUTRC=$HOME/.inputrc
-
-### ARM-ELF Compiler path
-export PATH=/usr/local/arm-elf/bin:$PATH
-export PATH=~/bin:$PATH
 
 ### Android SDK
 export PATH=/opt/android-sdk/tools:$PATH
@@ -87,8 +85,7 @@ export EDITOR=vim
 export VISUAL=$EDITOR
 
 ### Ruby 2.x.x
-export PATH=$HOME/.gem/ruby/2.1.0/bin:$PATH
-PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
+export PATH="`ruby -e 'print Gem.user_dir'`/bin:$PATH"
 
 ###  Fast shellcompletion
 set show-all-if-ambiguous on
@@ -102,11 +99,13 @@ set show-all-if-ambiguous on
 # NPM completion
 . <(npm completion)
 
+# RVM bash completion
+[[ -f "~/.rvm/scripts/completion" ]] && source "~/.rvm/scripts/completion"
+
 # Includes
 [[ -f ~/.bash_functions ]] && . ~/.bash_functions
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 [[ -f /etc/bash_completion ]] && . /etc/bash_completion
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source ~/.profile
 
