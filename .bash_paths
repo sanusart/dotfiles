@@ -1,0 +1,9 @@
+### Ruby and Gems
+PATH="`ruby -e 'print Gem.user_dir'`/bin:$PATH"
+
+### Include bin dir per user
+PATH="~/bin:$PATH"
+
+### Android SDK
+PATH="/opt/android-sdk/tools:$PATH"
+PATH="/opt/android-sdk/platform-tools:$PATH"

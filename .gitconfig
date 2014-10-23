@@ -13,6 +13,7 @@
 	mylog = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
 	mydiff = diff --cached
 	co = checkout
+	amend = commit --amend
 [sendemail]
 	smtpencryption = tls
 	smtpserver = smtp.gmail.com

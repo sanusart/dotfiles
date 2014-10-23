@@ -20,8 +20,13 @@ case "$TERM" in
         ;;
 esac
 
-##### NORMAL => ##### PS1='[\u@\h \W]\$ '
-##### My =>
+# Includes
+[[ -f ~/.bash_paths ]] && . ~/.bash_paths
+[[ -f ~/.bash_functions ]] && . ~/.bash_functions
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
+[[ -f /etc/bash_completion ]] && . /etc/bash_completion
+
+### PS1
 TXTBLK='\[\e[0;30m\]' # Black - Regular
 TXTRED='\[\e[0;31m\]' # Red
 TXTGRN='\[\e[0;32m\]' # Green
@@ -65,27 +70,18 @@ export HOME="/home/$USER"
 ### Puthon 2.7
 export PYTHON=python2.7
 
-export PATH=~/.rvm/gems/ruby-2.1.2/bin:$PATH
-
-### Include bin dir per user
-export PATH=~/bin:$PATH
-
 ### Chromium
 export CHROME_BIN=chromium
 
 ### Path to .inputrc
 export INPUTRC=$HOME/.inputrc
 
-### Android SDK
-export PATH=/opt/android-sdk/tools:$PATH
-export PATH=/opt/android-sdk/platform-tools:$PATH
-
 ### System-wide editor (instead of VI).
-export EDITOR=vim
-export VISUAL=$EDITOR
+export EDITOR="vim"
+export VISUAL="$EDITOR"
 
-### Ruby 2.x.x
-export PATH="`ruby -e 'print Gem.user_dir'`/bin:$PATH"
+### Gem home
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
 ###  Fast shellcompletion
 set show-all-if-ambiguous on
@@ -98,14 +94,3 @@ set show-all-if-ambiguous on
 
 # NPM completion
 . <(npm completion)
-
-# RVM bash completion
-[[ -f "~/.rvm/scripts/completion" ]] && source "~/.rvm/scripts/completion"
-
-# Includes
-[[ -f ~/.bash_functions ]] && . ~/.bash_functions
-[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
-[[ -f /etc/bash_completion ]] && . /etc/bash_completion
-
-source ~/.profile
-
