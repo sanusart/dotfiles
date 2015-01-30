@@ -94,3 +94,6 @@ set show-all-if-ambiguous on
 
 # NPM completion
 . <(npm completion)
+
+# RBENV
+eval "$(rbenv init -)"
