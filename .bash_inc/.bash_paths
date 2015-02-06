@@ -1,0 +1,22 @@
+### Ruby, Gems and RVM
+PATH="`ruby -e 'print Gem.user_dir'`/bin:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -r "$HOME/.rvm/scripts/completion" ]] && source "$HOME/.rvm/scripts/completion"
+
+### Include bin dir per user
+PATH="$HOME/bin:$PATH"
+
+### Android SDK
+PATH="/opt/android-sdk/tools:$PATH"
+PATH="/opt/android-sdk/platform-tools:$PATH"
+PATH="/usr/local/heroku/bin:$PATH"
+
+# mkhere completion
+[[ -f ~/.mkhere.completion.sh ]] && . ~/.mkhere.completion.sh
+
+# z completion
+[[ -f ~/bin/z/z.sh ]] && . ~/bin/z/z.sh
+
+# NPM completion
+. <(npm completion)

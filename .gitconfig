@@ -14,6 +14,7 @@
 	mydiff = diff --cached
 	co = checkout
 	amend = commit --amend
+	pullall = submodule foreach --recursive git pull origin master
 [sendemail]
 	smtpencryption = tls
 	smtpserver = smtp.gmail.com
