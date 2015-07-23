@@ -12,3 +12,5 @@
 [[ -f ~/.bash_inc/.bash_ps1 ]] && . ~/.bash_inc/.bash_ps1
 
 
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

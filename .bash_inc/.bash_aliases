@@ -16,7 +16,7 @@ alias www="cd ~/www/"
 alias ll='ls -alh --color=auto'
 alias mmm="su -c 'sync && echo 3 > /proc/sys/vm/drop_caches'"
 alias toclipboard='xclip -sel clip '
-
+alias g="git"
 ### Calls to functions
 alias ctar='mktar'
 alias cgz='mkgz'
