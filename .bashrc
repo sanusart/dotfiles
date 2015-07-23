@@ -1,15 +1,15 @@
 ### Includes
-[[ -f ~/.bash_inc/.bash_vars ]] && . ~/.bash_inc/.bash_vars
-[[ -f ~/.bash_inc/.bash_paths ]] && . ~/.bash_inc/.bash_paths
-[[ -f ~/.bash_inc/.bash_functions ]] && . ~/.bash_inc/.bash_functions
-[[ -f ~/.bash_inc/.bash_aliases ]] && . ~/.bash_inc/.bash_aliases
-[[ -f ~/.bash_inc/.bash_welcome ]] && . ~/.bash_inc/.bash_welcome
+[[ -f ~/.bash_inc/vars ]] && . ~/.bash_inc/vars
+[[ -f ~/.bash_inc/paths ]] && . ~/.bash_inc/paths
+[[ -f ~/.bash_inc/functions ]] && . ~/.bash_inc/functions
+[[ -f ~/.bash_inc/aliases ]] && . ~/.bash_inc/aliases
+[[ -f ~/.bash_inc/welcome ]] && . ~/.bash_inc/welcome
 
 ### Completion
 [[ -f /etc/bash_completion ]] && . /etc/bash_completion
 
 ### PS1
-[[ -f ~/.bash_inc/.bash_ps1 ]] && . ~/.bash_inc/.bash_ps1
+[[ -f ~/.bash_inc/ps1 ]] && . ~/.bash_inc/ps1
 
 
 

@@ -1,3 +1,0 @@
-### Welcome message for new terminal
-
-#printf "\n\nWelcome $USER\n\n"
