@@ -1,8 +1,26 @@
-eval "`dircolors -b`"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  eval "`dircolors -b`"
+  colorflag="--color"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  export CLICOLOR=YES
+  export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+  colorflag="-G"
+  alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
+fi
+
+# Directory listing
+if [[ "$(type -P tree)" ]]; then
+  alias ll='tree --dirsfirst -aLpughDFiC 1'
+  alias lsd='ll -d'
+else
+  alias ll='ls -al'
+  alias lsd='CLICOLOR_FORCE=1 ll | grep --color=never "^d"'
+fi
+
 alias ~='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ls='ls --color=auto'
+alias ls='ls $colorflag'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -13,10 +31,11 @@ alias bashrc='gedit $HOME/.bashrc'
 alias mkdir='mkdir -v'
 alias myip='wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1'
 alias www="cd ~/www/"
-alias ll='ls -alh --color=auto'
 alias mmm="su -c 'sync && echo 3 > /proc/sys/vm/drop_caches'"
 alias toclipboard='xclip -sel clip '
 alias g="git"
+alias dsstore="find . -name '*.DS_Store' -type f -ls -delete"
+
 ### Calls to functions
 alias ctar='mktar'
 alias cgz='mkgz'

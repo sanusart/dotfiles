@@ -22,5 +22,11 @@ PATH="/usr/local/heroku/bin:$PATH"
 . <(npm completion)
 
 # git completion
-source /usr/share/bash-completion/completions/git
-__git_complete g __git_main
+if [[ -f /usr/share/bash-completion/completions/git ]]; then
+  # Linux
+  source /usr/share/bash-completion/completions/git
+  __git_complete g __git_main
+elif [[ -f $(brew --prefix)/etc/bash_completion ]]; then
+  # darwin
+    . $(brew --prefix)/etc/bash_completion
+fi

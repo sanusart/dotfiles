@@ -1,5 +1,6 @@
 #
 # ~/.bash_profile
 #
-[[ -f ~/.bashrc ]] && . ~/.bashrc
-source ~/.profile
+export BASH_CONF="bash_profile"
+
+[[ -f ~/.bashrc ]] && source ~/.profile

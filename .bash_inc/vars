@@ -4,6 +4,13 @@ export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 shopt -s checkwinsize
 
+# Prefer US English and use UTF-8.
+export LANG='en_US.UTF-8';
+export LC_ALL='en_US.UTF-8';
+
+# Highlight section titles in manual pages.
+export LESS_TERMCAP_md="${yellow}";
+
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
 case "$TERM" in
@@ -23,7 +30,13 @@ case "$TERM" in
 esac
 
 ### HOME
-export HOME="/home/$USER"
+if [[ -f /home/$USER ]]; then
+  # linux
+  export HOME="/home/$USER"
+elif [[ -f /Users/$USER ]]; then
+  # darwin
+  export HOME="/Users/$USER"
+fi
 
 ### Puthon 2.7
 export PYTHON=python2.7

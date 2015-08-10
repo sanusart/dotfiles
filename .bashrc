@@ -1,3 +1,5 @@
+export BASH_CONF="bashrc"
+
 ### Includes
 [[ -f ~/.bash_inc/vars ]] && . ~/.bash_inc/vars
 [[ -f ~/.bash_inc/paths ]] && . ~/.bash_inc/paths
@@ -10,7 +12,5 @@
 
 ### PS1
 [[ -f ~/.bash_inc/ps1 ]] && . ~/.bash_inc/ps1
-
-
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
